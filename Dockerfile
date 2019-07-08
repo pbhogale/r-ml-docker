@@ -32,4 +32,3 @@ RUN exit && \
 	apt-get install fonts-firacode
 
 RUN mkdir /home/rstudio/Documents
-COPY ~/config.yml /home/config.yml
