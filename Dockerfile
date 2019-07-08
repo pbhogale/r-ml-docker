@@ -18,7 +18,7 @@ RUN apt-get update -qq && apt-get install -y \
       curl
 
 RUN R -e "install.packages(c('ranger','rstan'))" && \
-	R -e "install.packages(c('haven','plumber','classInt','tidyverse','ggplot2','httr','jsonlite','openssl','Rook', 'xgboost','devtools','caret','lme4','ggthemes','testthat','e1071','forcats','Matrix','knitr','rmarkdown','mice','glmnet', 'elasticnet','brms','chron','odbc','DBI','dbplyr','dbplot','tidypredict', 'janitor','plotly'))"
+	R -e "install.packages(c('haven','plumber','classInt','tidyverse','ggplot2','httr','jsonlite','openssl','Rook', 'xgboost','devtools','caret','lme4','ggthemes','testthat','e1071','forcats','Matrix','knitr','rmarkdown','mice','glmnet', 'elasticnet','brms','chron','odbc','DBI','dbplyr','dbplot','tidypredict', 'janitor','plotly','config'))"
 
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -&& \
 	curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list
@@ -32,3 +32,4 @@ RUN exit && \
 	apt-get install fonts-firacode
 
 RUN mkdir /home/rstudio/Documents
+COPY ~/config.yml /homee/config.yml
