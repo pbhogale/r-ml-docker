@@ -18,7 +18,9 @@ RUN apt-get update -qq && apt-get install -y \
       curl
 
 RUN R -e "install.packages(c('ranger','rstan'))" && \
-	R -e "install.packages(c('haven','plumber','classInt','tidyverse','ggplot2','httr','jsonlite','openssl','Rook', 'xgboost','devtools','caret','lme4','ggthemes','testthat','e1071','forcats','Matrix','knitr','rmarkdown','mice','glmnet', 'elasticnet','brms','chron','odbc','DBI','dbplyr','dbplot','tidypredict', 'janitor','plotly','config'))"
+	R -e "install.packages(c('haven','plumber','classInt','tidyverse','ggplot2','httr','jsonlite','openssl','Rook', 'xgboost','devtools','caret','lme4','ggthemes','testthat','e1071','forcats','Matrix','knitr','rmarkdown','mice','glmnet', 'elasticnet','brms','chron','odbc','DBI','dbplyr','dbplot','tidypredict', 'janitor','plotly','config', 'RCurl', 'rjson'))" && \
+      R -e "install.packages(c('statmod', 'survival', 'stats', 'tools', 'utils', 'methods'))" && \
+      R -e "install.packages('h2o', type='source', repos='http://h2o-release.s3.amazonaws.com/h2o/rel-yates/5/R')"
 
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -&& \
 	curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list
